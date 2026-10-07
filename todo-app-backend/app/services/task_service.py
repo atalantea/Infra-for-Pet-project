@@ -1,6 +1,7 @@
-from app.schemas.task import TaskCreate, TaskRead, TaskUpdate
-from app.repositories.task import TaskRepository
 from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.repositories.task_repository import TaskRepository
+from app.schemas.task_schema import TaskCreate, TaskRead, TaskUpdate
 
 
 class TaskNotFoundError(Exception):

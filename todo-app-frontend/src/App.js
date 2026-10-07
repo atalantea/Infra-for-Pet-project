@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import { API_BASE_URL } from './config';
 
-const API_BASE_URL = 'http://localhost:8080';
+//const api = axios.create({ baseURL: API_BASE_URL });
 
 function getTaskTitle(task) {
   return task.title ?? task.text ?? '';

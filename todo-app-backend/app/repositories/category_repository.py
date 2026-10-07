@@ -1,6 +1,7 @@
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.category import CategoryORM
+
+from app.models.category_model import CategoryORM
 
 
 class CategoryRepository:

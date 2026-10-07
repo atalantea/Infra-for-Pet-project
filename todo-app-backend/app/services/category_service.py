@@ -1,6 +1,7 @@
-from app.schemas.category import CategoryCreate, CategoryRead, CategoryUpdate
-from app.repositories.category import CategoryRepository
 from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.repositories.category_repository import CategoryRepository
+from app.schemas.category_schema import CategoryCreate, CategoryRead, CategoryUpdate
 
 
 class CategoryNotFoundError(Exception):
@@ -24,7 +25,9 @@ class CategoryService:
         await self.db.commit()
         return CategoryRead.model_validate(category)
 
-    async def update_category(self, category_id: str, payload: CategoryUpdate) -> CategoryRead:
+    async def update_category(
+        self, category_id: str, payload: CategoryUpdate
+    ) -> CategoryRead:
         category = await self.repository.get_by_id(category_id)
 
         if category is None:
