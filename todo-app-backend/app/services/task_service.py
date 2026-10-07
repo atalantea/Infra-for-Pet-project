@@ -26,7 +26,7 @@ class TaskService:
         return TaskRead.model_validate(task)
 
     async def update_task(self, task_id: str, payload: TaskUpdate) -> TaskRead:
-        task = await self.repository.get_by_id(task_id)
+        task = await self.repository.get_by_id(task_id=task_id)
 
         if task is None:
             raise TaskNotFoundError

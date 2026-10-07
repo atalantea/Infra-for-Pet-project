@@ -17,7 +17,15 @@ repos:
 
       - id: mypy
         name: mypy
-        entry: mypy --config todo-app-backend/pyproject.toml todo-app-backend/app
+        entry: cmd /c "cd todo-app-backend && mypy"
         language: system
         pass_filenames: false
         types_or: [python]
+
+      - id: pytest
+        name: pytest
+        entry: pytest # todo-app-backend
+        language: system
+        pass_filenames: false
+        types_or: [python]
+        # stages: [pre-push]
